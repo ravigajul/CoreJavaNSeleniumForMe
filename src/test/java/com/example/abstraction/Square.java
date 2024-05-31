@@ -1,4 +1,4 @@
-package com.example.abstrctn;
+package com.example.abstraction;
 
 public class Square extends Shape {
     double side;
@@ -10,5 +10,11 @@ public class Square extends Shape {
     @Override
     public double area() {
         return side * side;
+    }
+
+    @Override
+    public String info()
+    {
+        return "Area of the square is:" + area();
     }
 }

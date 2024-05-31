@@ -1,4 +1,4 @@
-package com.example.abstrctn;
+package com.example.abstraction;
 
 public class Circle extends Shape {
     double radius;
@@ -8,7 +8,11 @@ public class Circle extends Shape {
     }
 
     @Override
-    public double area() {
+    double area() {
         return Math.PI * Math.pow(radius, 2);
+    }
+
+    public String info(){
+        return "The area of the circle is :" + area();
     }
 }
