@@ -13,4 +13,9 @@ public class Manager extends Employee {
         System.out.println("Employee " + name + " belongs to department : " + department);
     }
 
+    @Override
+    public String toString() {
+        return "Manager [name=" + name + ", empId=" + empId + ", department=" + department + "]";
+    }
+
 }

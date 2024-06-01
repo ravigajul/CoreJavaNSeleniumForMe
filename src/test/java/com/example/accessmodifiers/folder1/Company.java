@@ -17,4 +17,11 @@ public class Company {
         System.out.println("Default department Doucuments :" + departmentDocuments);
         System.out.println("private personal Keys :" + personalKeys);
     }
+
+    @Override
+    public String toString() {
+        return "Company [companayWebsite=" + companayWebsite + ", trainingResources=" + trainingResources
+                + ", departmentDocuments=" + departmentDocuments + ", personalKeys=" + personalKeys + "]";
+    }
+    
 }

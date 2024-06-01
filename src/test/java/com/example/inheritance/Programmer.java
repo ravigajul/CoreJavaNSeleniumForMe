@@ -14,4 +14,9 @@ public class Programmer extends Employee {
                 "Employee " + name + " is a programmer who uses " + programmingLanguage
                         + " programming language");
     }
+
+    @Override
+    public String toString() {
+        return "Programmer [name=" + name + ", empId=" + empId + ", programmingLanguage=" + programmingLanguage + "]";
+    }
 }

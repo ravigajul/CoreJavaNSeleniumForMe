@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class loops {
 
     public static void main(String[] args) {
-
+        int myArray[] = { 10, 20, 30, 40, 50 };
         // for loop
         for (int i = 0; i <= 10; i++) {
             System.out.println(i);
@@ -18,6 +18,11 @@ public class loops {
 
         // incrementing by 2
         for (int i = 0; i <= 10; i = i + 2) {
+            System.out.println(i);
+        }
+
+        // enhanced for loop
+        for (int i : myArray) {
             System.out.println(i);
         }
 
