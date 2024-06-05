@@ -18,3 +18,42 @@ Table summarizing the important XPath syntax with their formulas:
 | `//tagname/..`                                 | Selects the parent of the `tagname` element.                 |
 
 You can use these formulas to construct XPath expressions for navigating XML or HTML documents effectively.
+
+Examples:
+
+1. **XPath for `<div>` elements with class "container":**
+   XPath: `//div[@class='container']`
+
+2. **XPath for `<a>` elements with `href` starting with "https://":**
+   XPath: `//a[starts-with(@href, 'https://')]`
+
+3. **XPath for `<h2>` elements containing the text "Important News":**
+   XPath: `//h2[contains(text(), 'Important News')]`
+
+4. **XPath for the third `<li>` element in an ordered list `<ol>`:**
+   XPath: `//ol/li[3]`
+
+5. **XPath for the parent `<div>` element of an `<input>` element with `id` set to "username":**
+   XPath: `//input[@id='username']/parent::div`
+
+6. **XPath for `<img>` elements with the `alt` attribute:**
+   XPath: `//img[@alt]`
+
+7. **XPath for `<input>` elements with `type` set to "checkbox":**
+   XPath: `//input[@type='checkbox']`
+
+8. **XPath for `<a>` elements whose `href` attribute contains "example.com":**
+   XPath: `//a[contains(@href, 'example.com')]`
+
+9. **XPath for `<div>` elements with class "content" inside a `<section>` element with id "main":**
+   XPath: `//section[@id='main']//div[@class='content']`
+
+10. **XPath for `<span>` elements containing the text "Error" inside a `<div>` element with class "alert":**
+    XPath: `//div[@class='alert']//span[contains(text(), 'Error')]`
+
+11. **XPath for the second `<p>` element containing the text "Lorem ipsum dolor sit amet":**
+    XPath: `//p[contains(text(), 'Lorem ipsum dolor sit amet')][2]`
+
+Practice Website: [Selenium Easy](https://www.seleniumeasy.com/test/)
+
+You can use Selenium with Java to navigate to the provided website, locate elements using the given XPath expressions, and perform actions or assertions as needed.
