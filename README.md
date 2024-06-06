@@ -22,3 +22,56 @@ Table summarizing the important XPath syntax with their formulas:
 | `//tagname/preceding-sibling::siblingname`                | Selects all sibling nodes that come before the `tagname` node. | `//p/preceding-sibling::h2` selects all `<h2>` sibling elements that come before `<p>` elements. |
 | `//tagname/parent::parentname`                            | Selects the parent node with the name `parentname` of the `tagname` node. | `//li/parent::ul` selects the `<ul>` parent element of all `<li>` elements. |
 | `//tagname/ancestor::ancestorname`                        | Selects all ancestor nodes with the name `ancestorname` of the `tagname` node. | `//span/ancestor::div` selects all `<div>` ancestor elements of all `<span>` elements. |
+
+## Collections
+
+The high-level diagram with interfaces represented as ovals and classes represented as rectangles:
+
+```
+                          +-------------+
+                          |  Iterable   |
+                          +-------------+
+                                 |
+                                 |
+                           +-------------+
+                           | Collection  |
+                           +-------------+
+      /         |          |           \            \
+     /          |          |            \            \
++------+   +-----------+   +----+   +-----------+   +---------+
+| List |   |  Queue    |   |Set |   | Deque     |   |  Map    |
++------+   +-----------+   +----+   +-----------+   +---------+
+   |            |           |           |                 |
+   |            |           |           |                 |
+   |            |           |           |                 |
++----------+   +-------------+  +-----------+  +-----------------+
+|ArrayList |   | LinkedList  |  |  HashSet  |  |  ArrayDeque     |
++----------+   +-------------+  +-----------+  +-----------------+
+|  Vector  |   | PriorityQueue|  |LinkedHashSet|  | LinkedList   |
++----------+   +-------------+  +-------------+  +-----------------+
+|  Stack   |
++----------+
+```
+
+### Explanation
+
+- **Ovals**:
+  - **Iterable**: The root interface for all collection classes. It provides the ability to iterate over elements using an iterator.
+  - **Collection**: Extends `Iterable` and is the root interface for all collections, including lists, sets, and queues. It represents a group of objects.
+  - **List**: Extends `Collection` and represents an ordered collection (sequence) that allows duplicates.
+  - **Set**: Extends `Collection` and represents a collection that does not allow duplicate elements.
+  - **Queue**: Extends `Collection` and represents a collection designed for holding elements prior to processing. Typically orders elements in a FIFO (first-in-first-out) manner.
+  - **Deque**: Extends `Queue` and represents a double-ended queue that allows element insertion and removal at both ends.
+  - **Map**: Not part of `Collection` but closely related. Represents a collection of key-value pairs.
+
+- **Rectangles**:
+  - **ArrayList**: Resizable array implementation.
+  - **LinkedList**: Doubly-linked list implementation.
+  - **Vector**: Synchronized, resizable array implementation.
+  - **Stack**: Subclass of `Vector` that represents a last-in-first-out (LIFO) stack of objects.
+  - **HashSet**: Implements a set backed by a hash table (actually a `HashMap` instance).
+  - **LinkedHashSet**: Extends `HashSet` and maintains a linked list of the entries in the set, in the order in which they were inserted.
+  - **PriorityQueue**: A priority queue based on a priority heap.
+  - **ArrayDeque**: Resizable array implementation of the `Deque` interface.
+  - **HashMap**: Implementation based on a hash table.
+  - **LinkedHashMap**: Extends `HashMap` and maintains a doubly-linked list of its entries.
