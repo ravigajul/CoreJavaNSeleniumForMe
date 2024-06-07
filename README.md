@@ -75,3 +75,75 @@ The high-level diagram with interfaces represented as ovals and classes represen
   - **ArrayDeque**: Resizable array implementation of the `Deque` interface.
   - **HashMap**: Implementation based on a hash table.
   - **LinkedHashMap**: Extends `HashMap` and maintains a doubly-linked list of its entries.
+
+## WebTable Scrapping
+
+The difference between the two sets of code you provided lies in how the XPath expressions are interpreted in relation to the context element (`firstTable`):
+
+### Without the Dot (Context-Insensitive)
+
+```java
+WebElement firstTable = driver.findElement(By.cssSelector("#table1"));
+List<WebElement> rows = firstTable.findElements(By.xpath("//tbody/tr"));
+```
+
+- **XPath Expression**: `//tbody/tr`
+- **Interpretation**: This XPath expression starts from the root of the document, not from the `firstTable` element. It will search for all `tbody/tr` elements in the entire document, not just within `firstTable`.
+
+### With the Dot (Context-Sensitive)
+
+```java
+WebElement firstTable = driver.findElement(By.cssSelector("#table1"));
+List<WebElement> rows = firstTable.findElements(By.xpath(".//tbody/tr"));
+```
+
+- **XPath Expression**: `.//tbody/tr`
+- **Interpretation**: This XPath expression starts from the context of the `firstTable` element. The `.` indicates the current node (context node), so it will search for all `tbody/tr` elements that are descendants of `firstTable`.
+
+### Key Differences
+
+1. **Scope of Search**:
+   - **Without Dot (`//tbody/tr`)**: Searches the entire document from the root, ignoring the context element (`firstTable`).
+   - **With Dot (`.//tbody/tr`)**: Searches only within the `firstTable` element, respecting the context element.
+
+2. **Performance**:
+   - **Without Dot**: Potentially slower if the document is large and there are many `tbody/tr` elements, since it searches the entire DOM.
+   - **With Dot**: More efficient as it limits the search to the subtree under `firstTable`.
+
+3. **Accuracy**:
+   - **Without Dot**: May return elements that are outside the intended context (`firstTable`), leading to incorrect or unexpected results.
+   - **With Dot**: Ensures that only elements within `firstTable` are returned, providing accurate and expected results.
+
+### Example for Clarification
+
+Consider the following HTML structure:
+
+```html
+<html>
+  <body>
+    <table id="table1">
+      <tbody>
+        <tr><td>Row 1, Table 1</td></tr>
+        <tr><td>Row 2, Table 1</td></tr>
+      </tbody>
+    </table>
+    <table id="table2">
+      <tbody>
+        <tr><td>Row 1, Table 2</td></tr>
+        <tr><td>Row 2, Table 2</td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+```
+
+- **Without Dot (`//tbody/tr`)**: This will find all `tr` elements within `tbody` elements in the entire document, so it will find 4 `tr` elements (2 from `table1` and 2 from `table2`).
+- **With Dot (`.//tbody/tr`)**: This will find only `tr` elements within the `tbody` of `table1`, so it will find 2 `tr` elements (both from `table1`).
+
+### Conclusion
+
+Using the dot (`.`) in the XPath expression is crucial when you want to restrict your search to within a specific context element. In this case, to ensure you're only finding rows (`tr` elements) within `#table1`, you should use the context-sensitive XPath:
+
+```java
+List<WebElement> rows = firstTable.findElements(By.xpath(".//tbody/tr"));
+```
