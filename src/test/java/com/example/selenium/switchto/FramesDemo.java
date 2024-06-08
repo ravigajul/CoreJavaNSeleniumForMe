@@ -1,7 +1,6 @@
 package com.example.selenium.switchto;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ById;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -24,11 +23,38 @@ public class FramesDemo extends BaseTest {
     }
 
     @Test
-    public void nestedIFrames() {
+    public void switchToLeftFrame() {
+        driver.navigate().to("https://the-internet.herokuapp.com/nested_frames");
+        String expectedText = "LEFT";
+        String actualText = driver.switchTo().frame("frame-top").switchTo().frame("frame-left")
+                .findElement(By.xpath("//body")).getText();
+        Assert.assertEquals(actualText, expectedText);
+    }
+
+    @Test
+    public void switchToMiddleFrame() {
         driver.navigate().to("https://the-internet.herokuapp.com/nested_frames");
         String expectedText = "MIDDLE";
-        String actualText = driver.switchTo().frame("frame-top").switchTo().frame("frameset-middle")
-                .findElement(By.id("content")).getText();
+        String actualText = driver.switchTo().frame("frame-top").switchTo().frame("frame-middle")
+                .findElement(By.xpath("//body")).getText();
+        Assert.assertEquals(actualText, expectedText);
+    }
+
+    @Test
+    public void switchToRightFrame() {
+        driver.navigate().to("https://the-internet.herokuapp.com/nested_frames");
+        String expectedText = "RIGHT";
+        String actualText = driver.switchTo().frame("frame-top").switchTo().frame("frame-right")
+                .findElement(By.xpath("//body")).getText();
+        Assert.assertEquals(actualText, expectedText);
+    }
+
+    @Test
+    public void switchToBottomFrame() {
+        driver.navigate().to("https://the-internet.herokuapp.com/nested_frames");
+        String expectedText = "BOTTOM";
+        String actualText = driver.switchTo().frame("frame-bottom")
+                .findElement(By.xpath("//body")).getText();
         Assert.assertEquals(actualText, expectedText);
     }
 }

@@ -11,15 +11,15 @@ public class BaseTest {
     protected WebDriver driver;
 
     @BeforeTest
-    public void initialize() {
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
     }
 
     @AfterTest
-    public void destroy() {
-        driver.quit();
+    public void tearDown() {
+        // driver.quit();
     }
 }
