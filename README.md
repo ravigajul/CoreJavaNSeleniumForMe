@@ -1,4 +1,4 @@
-# CoreJavaNSeleniumNSeleniumForMe
+# CoreJavaNSeleniumForMe
 
 ## Xpath
 
