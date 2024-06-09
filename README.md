@@ -1,4 +1,4 @@
-# CoreJavaForMe
+# CoreJavaNSeleniumForMe
 ## Xpath
 Table summarizing the important XPath syntax with their formulas:
 
