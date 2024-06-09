@@ -166,7 +166,6 @@ driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 WebElement successMessage = new WebDriverWait(driver, Duration.ofSeconds(18)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.bg-success")));
 
 //fluentwait
-// fluent wait
 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(20))
 .pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
 
