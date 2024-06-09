@@ -154,9 +154,9 @@ List<WebElement> rows = firstTable.findElements(By.xpath(".//tbody/tr"));
 
 https://www.selenium.dev/documentation/webdriver/waits/
 
-**Implicit Wait**: A global wait applied to all element interactions, waiting for a set time before throwing an exception.
-**Explicit Wait**: Waits for a specific condition (e.g., clickable element) to be met before proceeding.
-**Fluent Wait**: A customizable explicit wait that checks for a condition at intervals, ignoring specific exceptions during polling.
+**Implicit Wait**: A global wait applied to all element interactions, waiting for a set time before throwing an exception.  
+**Explicit Wait**: Waits for a specific condition (e.g., clickable element) to be met before proceeding.  
+**Fluent Wait**: A customizable explicit wait that checks for a condition at intervals, ignoring specific exceptions during polling.  
 
 ```java
 // implicitwat
