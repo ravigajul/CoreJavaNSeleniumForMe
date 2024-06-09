@@ -14,12 +14,12 @@ public class BaseTest {
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
+        // implicitwat
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
     @AfterTest
     public void tearDown() {
-        // driver.quit();
+        driver.quit();
     }
 }

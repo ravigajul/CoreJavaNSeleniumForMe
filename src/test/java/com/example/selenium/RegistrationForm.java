@@ -7,15 +7,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
-public class RegistrationForm {
+public class RegistrationForm extends BaseTest {
 
-    public static void main(String[] args) throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+    @Test
+    public void fillRegistrationForm() throws InterruptedException {
 
-        // implicit Wait
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://formy-project.herokuapp.com/form");
         WebElement firstName = driver.findElement(By.cssSelector("#first-name"));
         WebElement lastName = driver.findElement(By.id("last-name"));
@@ -40,12 +40,15 @@ public class RegistrationForm {
         driver.findElement(By.cssSelector("#datepicker")).click();
         driver.findElement(By.xpath("//td[@class='today day']")).click();
 
-        Thread.sleep(10000);
+        Thread.sleep(5000);
+
         // Submit
         driver.findElement(By.xpath("//a[text()='Submit']")).click();
 
         // Getting text from success mes
-        String successMessage = driver.findElement(By.cssSelector("div.alert.alert-success")).getText();
+        WebElement successMessageEle = driver.findElement(By.cssSelector("div.alert.alert-success"));
+        String successMessage = successMessageEle.getText();
+
         if (successMessage.equals("The form was successfully submitted!")) {
             System.out.println("Form Submitted sucessfully");
         } else {

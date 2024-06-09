@@ -147,3 +147,26 @@ Using the dot (`.`) in the XPath expression is crucial when you want to restrict
 ```java
 List<WebElement> rows = firstTable.findElements(By.xpath(".//tbody/tr"));
 ```
+
+## Waits
+
+### Implicit/Explicit and Fluent Wait
+
+https://www.selenium.dev/documentation/webdriver/waits/
+```java
+// implicitwat
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+
+// explicit wait
+WebElement successMessage = new WebDriverWait(driver, Duration.ofSeconds(18)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.bg-success")));
+
+//fluentwait
+// fluent wait
+Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(20))
+.pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
+
+WebElement successMessage = wait.until(driver -> driver.findElement(By.cssSelector("p.bg-success")));
+
+```
+
+
