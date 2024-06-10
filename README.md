@@ -213,4 +213,4 @@ js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", scrollab
 
 ### Summary
 
-In summary, `js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", scrollableDiv);` uses JavaScript to scroll the specified element (`scrollableDiv`) to the bottom by setting its `scrollTop` property to its `scrollHeight`.
+In summary, `js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", scrollableDiv);` uses JavaScript to scroll the specified element (`scrollableDiv`) to the bottom by setting its `scrollTop` property to its `scrollHeight`.  

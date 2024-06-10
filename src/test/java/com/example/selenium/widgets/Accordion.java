@@ -2,7 +2,6 @@ package com.example.selenium.widgets;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,7 +18,7 @@ public class Accordion extends BaseTest {
         WebElement section3 = driver.findElement(By.xpath("//b[contains(text(),'Chaining')]"));
 
         // Click to expand Section 1
-        // section1.click(); //by default it is expanded
+        section1.click(); // by default it is expanded
         WebElement panel1 = driver.findElement(By.cssSelector("#collapse1 div.panel-body"));
         Assert.assertTrue(panel1.isDisplayed());
 
