@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nested Shadow DOM Example</title>
+    <style>
+        custom-element {
+            display: block;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom element that will contain Shadow DOM -->
+    <custom-element></custom-element>
+
+    <script>
+        // Define a custom element
+        class CustomElement extends HTMLElement {
+            constructor() {
+                super();
+
+                // Attach a shadow root to the element
+                const shadow = this.attachShadow({ mode: 'open' });
+
+                // Create some content for the shadow root
+                const container = document.createElement('div');
+                const shadowStyle = document.createElement('style');
+
+                // Shadow DOM specific styles
+                shadowStyle.textContent = `
+                    div {
+                        background-color: lightgray;
+                        padding: 10px;
+                        border-radius: 5px;
+                    }
+                    p {
+                        color: blue;
+                    }
+                `;
+
+                container.innerHTML = `
+                    <p>This is inside the Shadow DOM</p>
+                    <nested-element></nested-element>
+                `;
+
+                // Attach the created elements to the shadow DOM
+                shadow.appendChild(shadowStyle);
+                shadow.appendChild(container);
+            }
+        }
+
+        // Define a nested custom element
+        class NestedElement extends HTMLElement {
+            constructor() {
+                super();
+
+                // Attach a shadow root to the element
+                const shadow = this.attachShadow({ mode: 'open' });
+
+                // Create some content for the nested shadow root
+                const nestedContainer = document.createElement('div');
+                const nestedShadowStyle = document.createElement('style');
+
+                // Nested Shadow DOM specific styles
+                nestedShadowStyle.textContent = `
+                    div {
+                        background-color: lightblue;
+                        padding: 10px;
+                        border-radius: 5px;
+                    }
+                    p {
+                        color: green;
+                    }
+                `;
+
+                nestedContainer.innerHTML = `
+                    <p>This is inside the Nested Shadow DOM</p>
+                    <button>Click Me</button>
+                `;
+
+                // Attach the created elements to the nested shadow DOM
+                shadow.appendChild(nestedShadowStyle);
+                shadow.appendChild(nestedContainer);
+            }
+        }
+
+        // Register the custom elements with the browser
+        customElements.define('custom-element', CustomElement);
+        customElements.define('nested-element', NestedElement);
+    </script>
+</body>
+</html>
