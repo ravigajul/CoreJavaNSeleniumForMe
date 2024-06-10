@@ -214,3 +214,56 @@ js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", scrollab
 ### Summary
 
 In summary, `js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", scrollableDiv);` uses JavaScript to scroll the specified element (`scrollableDiv`) to the bottom by setting its `scrollTop` property to its `scrollHeight`.  
+
+## Download a file
+
+To download a file to a specific folder in Selenium using ChromeDriver, you need to configure ChromeOptions to specify the download directory and handle download settings. Here is a summary of the required settings:
+
+### Steps to Configure ChromeDriver for File Download
+
+1. **Create ChromeOptions**:
+   - Use `ChromeOptions` to set preferences for downloading files.
+
+2. **Set Preferences in ChromeOptions**:
+   - `download.default_directory`: Specify the directory where files should be downloaded.
+   - `download.prompt_for_download`: Set to `false` to disable the download prompt.
+
+3. **Initialize WebDriver with ChromeOptions**:
+   - Create a new instance of `ChromeDriver` with the configured `ChromeOptions`.
+
+4. **Ensure the Download Directory Exists**:
+   - Check if the specified download directory exists and create it if it doesn't.
+
+
+### Example
+
+1. **ChromeOptions**:
+   ```java
+   ChromeOptions options = new ChromeOptions();
+   Map<String, Object> prefs = new HashMap<>();
+   prefs.put("download.default_directory", "path/to/download/directory");
+   prefs.put("download.prompt_for_download", "false");
+   options.setExperimentalOption("prefs", prefs);
+   ```
+
+2. **Initialize WebDriver**:
+
+   ```java
+   WebDriver driver = new ChromeDriver(options);
+   ```
+
+3. **Ensure Directory Exists**:
+
+   ```java
+   // Ensure download directory exists
+        Path downloadDir = Paths.get(downloadFilePath);
+        try {
+            if (!Files.exists(downloadDir)) {
+                Files.createDirectories(downloadDir);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+   ```
+
+This setup ensures that downloaded files are saved to the specified directory within your project, leveraging the capabilities of Selenium and ChromeOptions.  
