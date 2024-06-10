@@ -175,7 +175,7 @@ WebElement successMessage = wait.until(driver -> driver.findElement(By.cssSelect
 
 ```
 
-## JavaSCript Execution\
+## JavaSCript Execution
 
  The JavaScript Executor in Selenium WebDriver allows you to execute JavaScript code within the context of the browser. This can be particularly useful for performing actions that are not directly supported by Selenium WebDriver or for manipulating elements in ways that WebDriver does not natively support.
 
