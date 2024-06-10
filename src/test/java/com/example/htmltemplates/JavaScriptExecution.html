@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Executor Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #hiddenElement {
+            display: none;
+        }
+        .scrollable {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .content {
+            height: 500px;
+            background: linear-gradient(to bottom, #f0f0f0, #0f0f0f);
+        }
+        #alertButton {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Executor Test Page</h1>
+    
+    <div class="scrollable" id="scrollableDiv">
+        <div class="content"></div>
+    </div>
+    
+    <button id="hiddenElement">Hidden Button</button>
+    
+    <input type="text" id="inputField" placeholder="Enter some text">
+    
+    <button id="alertButton">Generate Alert</button>
+    
+    <p id="pageTitle"></p>
+    
+    <script>
+        // Script to reveal the hidden button for testing purpose
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('hiddenElement').style.display = 'block';
+            }, 3000); // The button will become visible after 3 seconds
+        });
+    </script>
+</body>
+</html>
