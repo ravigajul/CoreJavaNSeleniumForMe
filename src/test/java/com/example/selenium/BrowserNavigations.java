@@ -1,11 +1,12 @@
 package com.example.selenium;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class BrowserNavigations extends BaseTest {
 
-    @BeforeTest
+    @BeforeMethod
     public void navigateTo() {
         driver.get("https://the-internet.herokuapp.com/");
     }

@@ -5,13 +5,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
@@ -19,7 +22,7 @@ public class BaseTest {
     protected String downloadsDirectory;
     protected String downloadFilePath;
 
-    @BeforeTest
+    @BeforeClass
     public void setUp() {
 
         // Create a map to store chrome options
@@ -52,7 +55,7 @@ public class BaseTest {
         }
     }
 
-    @AfterTest
+    @AfterClass
     public void tearDown() {
         driver.quit();
     }
