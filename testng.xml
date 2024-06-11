@@ -1,13 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite1" verbose="1">
+<suite name="Suite1" parallel="methods" thread-count="1" verbose="1">
     <!-- Define parameters -->
     <parameter name="browser" value="chrome" />
     <parameter name="baseUrl" value="https://example.com" />
 
     <!-- Listeners for custom actions during the test lifecycle -->
-    <!-- <listeners>
-        <listener class-name="com.example.MyListener" />
-    </listeners> -->
+    <listeners>
+        <listener class-name="com.example.selenium.listeners.MyTestListeners" />
+    </listeners>
 
     <!-- Define group by classes -->
     <test name="ClassLevelTests">
@@ -17,14 +17,14 @@
     </test>
 
     <!-- Group by packages-->
-    <test name="PackageLevelTests">
+    <!-- <test name="PackageLevelTests">
         <packages>
             <package name="com.example.selenium.switchto" />
         </packages>
-    </test>
+    </test> -->
 
     <!-- Using methods to include/exclude specific methods -->
-    <test name="MethodLevelTests">
+    <!-- <test name="MethodLevelTests">
         <classes>
             <class name="com.example.selenium.FileUploadDownload">
                 <methods>
@@ -33,7 +33,7 @@
                 </methods>
             </class>
         </classes>
-    </test>
+    </test> -->
 
     <!-- Groups configuration -->
     <!-- <test name="GroupedTests">
