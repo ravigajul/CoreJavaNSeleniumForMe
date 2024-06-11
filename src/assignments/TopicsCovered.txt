@@ -1,0 +1,75 @@
+Core Java
+	1. Variables, operators (mathematical, conditional)
+	2. Loops (for, while, do-while)
+	3. control structures (if, switch, nested if)
+	4. Functions
+	5. OOPs
+		1. Abstraction
+		2. encapsulation
+		3. inheritance
+		4. polymorphism
+		5. interfaces
+	6. access modifiers -public, private, default, protected
+	7. exceptions - try-catch, try-with-resources, throws, throw, userdefined exceptions
+	8. fileoperations - read, write, copy, create
+Selenium:
+	1. htmlbasics
+	2. Locators
+		1. xpath
+		2. css
+	3. WebElements
+		1. textbox, radio, checkbox,datepicker, dropdown, Calendar class for date manipulation
+	4.List
+	5.driver.findElements
+	6.enhanced forloop
+	7.Table Structure in Html
+	8.WebTableScrapping , command chaining , Context Sensitive (with dot) 
+=========================================================================
+	SwitchTo()
+		1. Windows
+		2. Alerts
+		3. Frames
+	AutoComplete
+	Waits	
+		1. Implicit
+		2. Explicit
+		2. Fluent
+==========================================================================
+	Advanced Topics
+		1. Shadow Dom
+		2. JavaScriptExecutor
+		3. FileUpload and Download
+		4. Keyboard and Mouse Operations
+		5. Browser Navigations
+		6. FileOperations
+		7.Path
+=============================================================================
+	TestNG
+		Basics
+			1. Annotations
+			2. testNGXML config
+		Test Case Management
+			1. Grouping
+			2. Dependency
+			3. Priority
+		Assertions
+			1. Assert Class
+		Parameterization
+			1. parameterize through testNg.Xml
+			2. parameterize through @dataprovider annotation
+			
+		TestNG Listeners & Reporting
+			1. Listeners
+			2. Extent Reports
+			
+		Parallel Execution
+			1. parallel tests by class, test, methods etc
+			
+	Retry Mechanism
+	Logging
+	Build Tool
+==============================================================================
+Page Object Model		
+	
+
+
