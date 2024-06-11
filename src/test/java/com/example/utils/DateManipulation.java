@@ -2,6 +2,7 @@ package com.example.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class DateManipulation {
@@ -65,5 +66,13 @@ public class DateManipulation {
         setExpectedLongMonth(expectedLongMonth);
         setExpectedShortMonth(expectedShortMonth);
         setExpectedYear(expectedYear);
+    }
+
+    public static String formatDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM yyyy");
+        Date currentDate = new Date();
+        String formattedDate = dateFormat.format(currentDate);
+        System.out.println("Formatted date: " + formattedDate);
+        return formattedDate;
     }
 }
