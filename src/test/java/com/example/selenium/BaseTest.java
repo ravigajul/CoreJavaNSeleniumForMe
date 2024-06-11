@@ -7,9 +7,12 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -17,6 +20,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected String downloadsDirectory;
     protected String downloadFilePath;
+    protected Wait<WebDriver> wait;
 
     @BeforeClass
     public void setUp() {
@@ -49,6 +53,9 @@ public class BaseTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // global wait
+        wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(20))
+                .pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
     }
 
     @AfterClass

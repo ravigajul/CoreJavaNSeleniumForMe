@@ -19,9 +19,17 @@
         .content {
             height: 500px;
             background: linear-gradient(to bottom, #f0f0f0, #0f0f0f);
+            position: relative;
         }
         #alertButton {
             margin-top: 20px;
+        }
+        #visibleOnScroll {
+            position: absolute;
+            top: 300px; /* Adjust this value to place it within the scrollable area */
+            color: white;
+            background-color: black;
+            padding: 10px;
         }
     </style>
 </head>
@@ -29,7 +37,10 @@
     <h1>JavaScript Executor Test Page</h1>
     
     <div class="scrollable" id="scrollableDiv">
-        <div class="content"></div>
+        <div class="content">
+            <div id="scrollTarget" style="position: absolute; bottom: 0;">Scroll to this element</div>
+            <div id="visibleOnScroll">You have scrolled to me!</div>
+        </div>
     </div>
     
     <button id="hiddenElement">Hidden Button</button>

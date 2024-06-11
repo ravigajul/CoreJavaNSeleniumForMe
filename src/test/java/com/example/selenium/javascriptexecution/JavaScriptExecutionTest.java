@@ -15,12 +15,12 @@ public class JavaScriptExecutionTest extends BaseTest {
     @BeforeMethod
     public void navigateTo() {
         driver.get(
-                "https://gistcdn.githack.com/ravigajul/dee23b712aa43bc2625c0ca64475c7f8/raw/895c955497e174b9061d120e4e9b894ccad9f410/JavaScriptExecution.html");
+                "https://gistcdn.githack.com/ravigajul/13fca01b060bf2a645c593e5c6cc16e4/raw/6a9fb9d69963cb8ecc575645e78abe370620b6b3/JavaScriptExecution.html");
         js = (JavascriptExecutor) driver;
     }
 
     @Test
-    public void scrollToElement() throws InterruptedException {
+    public void scrollToFullHeight() throws InterruptedException {
         Thread.sleep(3000);
         // Scroll to an element
         WebElement scrollableDiv = driver.findElement(By.id("scrollableDiv"));
@@ -58,5 +58,19 @@ public class JavaScriptExecutionTest extends BaseTest {
         String title = (String) js.executeScript("return document.title;");
         js.executeScript("document.getElementById('pageTitle').innerText = 'Page Title: ' + arguments[0];", title);
 
+    }
+
+    @Test
+    public void scrollIntoView() throws InterruptedException {
+
+        // Scroll to an element
+        // WebElement scrollableDiv = driver.findElement(By.id("scrollableDiv"));
+        // js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;",
+        // scrollableDiv);
+        WebElement scrollTarget = driver.findElement(By.id("scrollTarget"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView", scrollTarget);
+        WebElement scrolledElement = wait.until(driver -> driver.findElement(By.id("visibleOnScroll")));
+        assert scrolledElement.getText().equals("You have scrolled to me!");
     }
 }

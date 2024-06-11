@@ -1,6 +1,8 @@
 package com.example.selenium.switchto;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -56,5 +58,17 @@ public class FramesDemo extends BaseTest {
         String actualText = driver.switchTo().frame("frame-bottom")
                 .findElement(By.xpath("//body")).getText();
         Assert.assertEquals(actualText, expectedText);
+    }
+
+    @Test
+    public void switchToDefaultContent() {
+        driver.get("https://the-internet.herokuapp.com/nested_frames");
+
+        WebDriver topFrame = driver.switchTo().frame("frame-top");
+        WebDriver leftFrame = topFrame.switchTo().frame("frame-left");
+        String textContent = leftFrame.findElement(By.cssSelector("body")).getText();
+        assert textContent.equals("LEFT");
+        driver.switchTo().defaultContent();
+        assert driver.switchTo().frame("frame-bottom").findElement(By.cssSelector("body")).getText().equals("BOTTOM");
     }
 }
