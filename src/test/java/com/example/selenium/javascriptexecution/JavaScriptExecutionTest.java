@@ -69,7 +69,7 @@ public class JavaScriptExecutionTest extends BaseTest {
         // scrollableDiv);
         WebElement scrollTarget = driver.findElement(By.id("scrollTarget"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView", scrollTarget);
+        js.executeScript("arguments[0].scrollIntoView(true);", scrollTarget);
         WebElement scrolledElement = wait.until(driver -> driver.findElement(By.id("visibleOnScroll")));
         assert scrolledElement.getText().equals("You have scrolled to me!");
     }
