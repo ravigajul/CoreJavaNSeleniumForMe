@@ -5,9 +5,9 @@
     <parameter name="baseUrl" value="https://example.com" />
 
     <!-- Listeners for custom actions during the test lifecycle -->
-    <!--    <listeners>
-        <listener class-name="com.example.selenium.listeners.MyTestListeners" />
-    </listeners> -->
+    <listeners>
+        <listener class-name="com.example.testng.ListenersExample" />
+    </listeners>
 
     <!-- Define group by classes -->
     <!-- <test name="ClassLevelTests">
@@ -17,10 +17,18 @@
     </test> -->
 
     <!-- Group by packages-->
-    <test name="PackageLevelTests">
+    <!--  <test name="PackageLevelTests">
         <packages>
             <package name="com.example.selenium.interactions" />
         </packages>
+    </test> -->
+
+    <test name="ParameterTest">
+        <parameter name="username" value="testuser" />
+        <parameter name="password" value="testpassword" />
+        <classes>
+            <class name="com.example.testng.ParameterExampleTest" />
+        </classes>
     </test>
 
     <!-- Using methods to include/exclude specific methods -->

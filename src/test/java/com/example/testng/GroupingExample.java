@@ -1,7 +1,8 @@
 package com.example.testng;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+@Listeners(ListenersExample.class)
 public class GroupingExample {
 
     @Test(groups = { "group1" })

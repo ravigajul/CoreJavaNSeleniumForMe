@@ -284,3 +284,94 @@ Of course! Here is the scope of each TestNG annotation:
 - **@AfterMethod**: Runs after each test method  in that specific class
 - **@Test**: Represents a test method.
 
+## Attributes with Annotations
+
+Common helper attributes used with TestNG annotations:
+
+- **`dependsOnMethods`**: Specifies dependencies between test methods, ensuring one method runs only after specified methods have completed.
+
+- **`priority`**: Controls the execution order of test methods within a class, with lower values indicating higher priority.
+
+- **`groups`**: Assigns test methods to one or more groups, allowing selective execution of tests based on group categorization.
+
+- **`enabled`**: Enables or disables a test method. Disabled methods are skipped during test execution.
+
+- **`dataProvider`**: Links a test method to a data provider method supplying data for parameterized tests, enhancing test coverage with varied inputs.
+
+These attributes provide essential functionality for managing dependencies, execution order, grouping tests, enabling/disabling tests, and parameterizing tests with external data, ensuring flexibility and control in TestNG test suites.
+
+```java
+@Test
+public void testA() {
+    // Test logic
+}
+
+@Test(dependsOnMethods = "testA", priority = 2, groups = {"smoke","regression"},enabled = true)
+public void testB() {
+    // Test logic that depends on testA
+}
+
+@Test(dataProvider = "data-provider", dependsOnMethods = "loginTest")
+public void testWithDataProvider(String username, String password) {
+    // Test logic using data provided by "data-provider" and depends on loginTest
+}
+
+@DataProvider(name = "data-provider")
+public Object[][] dataProviderMethod() {
+    return new Object[][] {
+        {"user1", "password1"},
+        {"user2", "password2"}
+    };
+}
+```
+
+### Parameters
+ In TestNG, you can pass parameters to your test methods directly from the testng.xml configuration file. This allows you to customize test execution without modifying the test method code.
+
+ ```xml
+ <test name="ParameterTest">
+        <parameter name="username" value="testuser" />
+        <parameter name="password" value="testpassword" />
+        <classes>
+            <class name="com.example.testng.ParameterExampleTest" />
+        </classes>
+    </test>
+ ```
+
+```java
+    @Test
+    @Parameters({ "username", "password" })
+    public void testWithParameters(String username, String password) {
+        System.out.println("Username: " + username);
+        System.out.println("Password: " + password);
+        // Test logic using username and password
+    }
+```
+
+## Assertions
+
+Assertions in TestNG are used to verify expected outcomes during test execution.
+
+- **Assert Equals**: Verifies if the actual value equals the expected value.
+- **Assert True**: Checks if the given condition is true.
+- **Assert False**: Checks if the given condition is false.
+- **Assert Null**: Ensures that the object reference is null.
+- **Assert Not Null**: Ensures that the object reference is not null.
+
+## Listeners 
+TestNG listeners are powerful tools for customizing test execution behavior and performing actions based on various test events. They enable you to implement logging, reporting, or custom handling of test outcomes, enhancing the control and visibility of your test automation framework
+
+**CustomTestListener**: Implements ITestListener interface provided by TestNG, which includes methods to handle various test events (onStart, onFinish, onTestStart, onTestSuccess, onTestFailure, onTestSkipped, etc.).
+
+**TestWithListener**: Uses @Listeners annotation to attach CustomTestListener to the test class. This ensures that the listener methods (CustomTestListener methods) are invoked during the corresponding test events.
+
+```java
+@Listeners(ListenersExample.class)
+public class GroupingExample {}
+```
+
+### Choosing Between Static and Non-Static WebDriver
+
+**Static Approach**: Use when you need a single WebDriver instance shared across multiple test classes for consistency, efficiency, and simplicity.
+
+**Non-Static Approach**: Use when you require separate WebDriver instances with different configurations or lifecycle management per test class or method.  

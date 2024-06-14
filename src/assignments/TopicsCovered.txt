@@ -1,7 +1,7 @@
 Core Java
-	1. Variables, operators (mathematical, conditional)
-	2. Loops (for, while, do-while)
-	3. control structures (if, switch, nested if)
+	1. Variables
+	2. Loops
+	3.Conditional Statements
 	4. Functions
 	5. OOPs
 		1. Abstraction
@@ -9,16 +9,16 @@ Core Java
 		3. inheritance
 		4. polymorphism
 		5. interfaces
-	6. access modifiers -public, private, default, protected
-	7. exceptions - try-catch, try-with-resources, throws, throw, userdefined exceptions
-	8. fileoperations - read, write, copy, create
+	6. access modifiers
+	7. exceptions
+	8. fileoperations
 Selenium:
 	1. htmlbasics
 	2. Locators
 		1. xpath
 		2. css
 	3. WebElements
-		1. textbox, radio, checkbox,datepicker, dropdown, Calendar class for date manipulation
+		1. textbox, radio, checkbox,datepicker, dropdown.
 	4.List
 	5.driver.findElements
 	6.enhanced forloop
@@ -28,35 +28,52 @@ Selenium:
 	SwitchTo()
 		1. Windows
 		2. Alerts
-		3. Frames
-	AutoComplete
+		3. Frames -- switch to frames, switch to default content --internet heroku
+	AutoComplete -- partially typoing and clicking - gist
 	Waits	
-		1. Implicit
-		2. Explicit
-		2. Fluent
+		1. Implicit --global wait
+		2. Explicit -- until expected condition.visibility of element located by
+				WebElement successMessage = new WebDriverWait(driver, Duration.ofSeconds(18))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.bg-success")));
+
+		2. Fluent  --withtimeout		
+			// fluent wait
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(20))
+					.pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
+			WebElement successMessage = wait.until(driver -> driver.findElement(By.cssSelector("p.bg-success")));
+
 ==========================================================================
 	Advanced Topics
-		1. Shadow Dom
-		2. JavaScriptExecutor
-		3. FileUpload and Download
-		4. Keyboard and Mouse Operations
-		5. Browser Navigations
+		1. Shadow Dom --gist
+		2. JavaScriptExecutor --gist
+			js.executeScript("arguments[0].click();", hiddenButton);
+			js.executeScript("arguments[0].value='testing';", textBox);
+			js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("scrollTarget")));
+		3. Browser Navigations --navigateto, back, forward, refresh
+		4. FileUpload and Download
+		ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", prefs);
+			Map<String, String> prefs = new HashMap<>();
+			prefs.put("download.default_directory", downloadFilePath);
+			prefs.put("download.prompt_for_download", "false");			
+		4. Keyboard and Mouse Operations - 
+		5. 
 		6. FileOperations
 		7.Path
 =============================================================================
 	TestNG
 		Basics
-			1. Annotations
-			2. testNGXML config
+			1. testNGXML config
+			2. Annotations (Static WebDriver) (might encounter null pointer exception if not static)
 		Test Case Management
-			1. Grouping
+			1. Grouping(@Test(groups = { "group1" }))
 			2. Dependency
-			3. Priority
-		Assertions
-			1. Assert Class
+			3. Priority (@Test(priority = 1)
 		Parameterization
 			1. parameterize through testNg.Xml
 			2. parameterize through @dataprovider annotation
+		Assertions
+			1. Assert Class
 			
 		TestNG Listeners & Reporting
 			1. Listeners
@@ -69,7 +86,4 @@ Selenium:
 	Logging
 	Build Tool
 ==============================================================================
-Page Object Model		
-	
-
-
+Page Object Model

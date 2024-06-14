@@ -14,15 +14,19 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
-    protected WebDriver driver;
+    protected  static WebDriver driver;
     protected String downloadsDirectory;
     protected String downloadFilePath;
     protected Wait<WebDriver> wait;
 
-    @BeforeClass
+    @BeforeSuite
     public void setUp() {
 
         // Create a map to store chrome options
@@ -58,7 +62,7 @@ public class BaseTest {
                 .pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
     }
 
-    @AfterClass
+    @AfterSuite
     public void tearDown() {
         driver.quit();
     }
