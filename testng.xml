@@ -5,23 +5,23 @@
     <parameter name="baseUrl" value="https://example.com" />
 
     <!-- Listeners for custom actions during the test lifecycle -->
-    <listeners>
+    <!--    <listeners>
         <listener class-name="com.example.selenium.listeners.MyTestListeners" />
-    </listeners>
+    </listeners> -->
 
     <!-- Define group by classes -->
-    <test name="ClassLevelTests">
+    <!-- <test name="ClassLevelTests">
         <classes>
             <class name="com.example.selenium.BrowserNavigations" />
         </classes>
-    </test>
+    </test> -->
 
     <!-- Group by packages-->
-    <!-- <test name="PackageLevelTests">
+    <test name="PackageLevelTests">
         <packages>
-            <package name="com.example.selenium.switchto" />
+            <package name="com.example.selenium.interactions" />
         </packages>
-    </test> -->
+    </test>
 
     <!-- Using methods to include/exclude specific methods -->
     <!-- <test name="MethodLevelTests">
