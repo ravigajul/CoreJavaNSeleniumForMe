@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import com.example.selenium.BaseTest;
 
-public class DataProvider extends BaseTest {
+public class DataProviderDemo extends BaseTest {
 
     @Test(dataProvider = "Data-Provider")
     public void fillRegistrationForm(String fName, String lName, String jTitle) throws InterruptedException {
