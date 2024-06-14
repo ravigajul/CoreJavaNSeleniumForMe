@@ -56,6 +56,11 @@ public class DataProviderDemo extends BaseTest {
 
     }
 
+    @Test(dataProvider = "Static-Data-Provider", dataProviderClass = StaticDataProvider.class)
+    public void saticDataProviderDemo(String fName, String lName, String jobTitle) {
+        System.out.println(fName + " " + lName + " " + jobTitle);
+    }
+
     @DataProvider(name = "Data-Provider")
     public Object[][] testDataProvider() {
         return new Object[][] {

@@ -175,7 +175,7 @@ WebElement successMessage = wait.until(driver -> driver.findElement(By.cssSelect
 
 ```
 
-## JavaSCript Execution
+## JavaScript Execution
 
  The JavaScript Executor in Selenium WebDriver allows you to execute JavaScript code within the context of the browser. This can be particularly useful for performing actions that are not directly supported by Selenium WebDriver or for manipulating elements in ways that WebDriver does not natively support.
 
@@ -359,6 +359,7 @@ Assertions in TestNG are used to verify expected outcomes during test execution.
 - **Assert Not Null**: Ensures that the object reference is not null.
 
 ## Listeners 
+
 TestNG listeners are powerful tools for customizing test execution behavior and performing actions based on various test events. They enable you to implement logging, reporting, or custom handling of test outcomes, enhancing the control and visibility of your test automation framework
 
 **CustomTestListener**: Implements ITestListener interface provided by TestNG, which includes methods to handle various test events (onStart, onFinish, onTestStart, onTestSuccess, onTestFailure, onTestSkipped, etc.).

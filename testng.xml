@@ -44,17 +44,17 @@
     </test> -->
 
     <!-- Groups configuration -->
-    <!-- <test name="GroupedTests">
+    <test name="GroupedTests">
         <groups>
             <run>
-                <include name="group1"/>
+                <include name="smokeTest"/>
                 <exclude name="group2"/>
             </run>
         </groups>
         <classes>
             <class name="com.example.selenium.GroupedClass"/>
         </classes>
-    </test> -->
+    </test>
 
     <!-- Including another suite file -->
     <!--  <suite-files>

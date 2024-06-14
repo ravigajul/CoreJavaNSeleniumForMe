@@ -1,0 +1,72 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite2" parallel="methods" thread-count="1" verbose="1">
+    <parameter name="username" value="Sharath" />
+    <parameter name="password" value="Welcome!123" />
+    <parameter name="url" value="https://www.java-prod.com"></parameter>
+    <test name="ParameterizedTest">
+        <!-- <groups>
+            <run>
+                <include name="smokeTest" />
+            </run>
+        </groups> -->
+        <classes>
+            <class name="com.example.temp.ParameterDemo" />
+        </classes>
+    </test>
+    <!-- Define group by classes -->
+    <!-- <test name="SwitchToAlertsTests">
+        <classes>
+            <class name="com.example.selenium.switchto.AlertsDemo" />
+        </classes>
+    </test>
+
+     <test name="SwitchToWindowTests">
+        <classes>
+            <class name="com.example.selenium.switchto.WindowsDemo" />
+        </classes>
+    </test> -->
+
+    <!-- Group by packages-->
+    <!--  <test name="PackageLevelTests">
+        <packages>
+            <package name="com.example.selenium.*" />
+            <package name="com.example.selenium.javascriptexecution" />
+        </packages>
+    </test>
+
+    <test name="MethodLevelTests">
+        <classes>
+            <class name="com.example.selenium.FileUploadDownload">
+                <methods>
+                    <include name="fileDownload" />
+                    <exclude name="fileUploadTest" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="MethodLevelTests1">
+        <classes>
+            <class name="com.example.selenium.FileUploadDownload">
+                <methods>
+                    <include name="fileDownload" />
+                </methods>
+            </class>
+            <class name="com.example.selenium.FileUploadDownload">
+                <methods>
+                    <include name="fileDownload" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="MethodLevelTests2">
+        <classes>
+            <class name="com.example.selenium.FileUploadDownload">
+                <methods>
+                    <include name="fileDownload" />
+                </methods>
+            </class>
+        </classes>
+    </test> -->
+
+</suite>
