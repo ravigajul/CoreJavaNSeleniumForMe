@@ -266,4 +266,21 @@ To download a file to a specific folder in Selenium using ChromeDriver, you need
         }
    ```
 
-This setup ensures that downloaded files are saved to the specified directory within your project, leveraging the capabilities of Selenium and ChromeOptions.  
+This setup ensures that downloaded files are saved to the specified directory within your project, leveraging the capabilities of Selenium and ChromeOptions.
+
+## TESTNG
+
+### Annotations
+
+Of course! Here is the scope of each TestNG annotation:
+
+- **@BeforeSuite**: Runs once before all tests in the suite.
+- **@AfterSuite**: Runs once after all tests in the suite.
+- **@BeforeTest**: Runs once before any test methods in the `<test>` tag.
+- **@AfterTest**: Runs once after all test methods in the `<test>` tag.
+- **@BeforeClass**: Runs once before the first test method in the current class.
+- **@AfterClass**: Runs once after all test methods in the current class.
+- **@BeforeMethod**: Runs before each test method in that specific class
+- **@AfterMethod**: Runs after each test method  in that specific class
+- **@Test**: Represents a test method.
+
