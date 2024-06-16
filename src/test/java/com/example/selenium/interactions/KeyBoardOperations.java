@@ -28,7 +28,7 @@ public class KeyBoardOperations extends BaseTest {
         WebElement email = driver.findElement(By.cssSelector("#email"));
         Actions actions = new Actions(driver);
         actions.sendKeys(email, "This is through actions").perform();
-        // assert email.getDomAttribute("value").equals("This is through actions");
+        assert email.getDomAttribute("value").equals("This is through actions");
     }
 
     @Test

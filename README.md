@@ -376,3 +376,83 @@ public class GroupingExample {}
 **Static Approach**: Use when you need a single WebDriver instance shared across multiple test classes for consistency, efficiency, and simplicity.
 
 **Non-Static Approach**: Use when you require separate WebDriver instances with different configurations or lifecycle management per test class or method.  
+
+## Extent Reports
+
+The combination of these classes allows you to generate detailed and informative HTML reports for your TestNG tests using the Extent Reports library.
+
+1. `ExtentSparkReporter`:
+   - The `ExtentSparkReporter` class is responsible for generating the HTML report file.
+   - It is a part of the Extent Reports library and is used to define the configuration and settings for the report generation.
+   - You can specify the output file name and location using the `ExtentSparkReporter` constructor.
+   - It provides various methods to customize the report, such as setting the report name, theme, document title, etc.
+   - Multiple reporters can be attached to an `ExtentReports` instance to generate reports in different formats or locations.
+
+2. `ExtentReports`:
+   - The `ExtentReports` class is the main class that represents the Extent Reports instance.
+   - It acts as a central entity to which you attach reporters (`ExtentSparkReporter` in this case) and build the report.
+   - The `ExtentReports` class provides methods to create tests, assign authors, add system info, and more.
+   - It maintains a list of tests and their associated results.
+   - You can create an instance of `ExtentReports` using the `createInstance()` method, which initializes the report and returns the instance.
+   - At the end of the test execution, you need to call the `flush()` method on the `ExtentReports` instance to write the report to the output file.
+
+3. `ExtentTest`:
+   - The `ExtentTest` class represents a single test or a node in the report.
+   - It is created using the `createTest()` method of the `ExtentReports` instance.
+   - Each `ExtentTest` object corresponds to a specific test method or a test case in your framework.
+   - You can use the `ExtentTest` object to log details about the test, such as steps, assertions, logs, screenshots, etc.
+   - The `ExtentTest` class provides methods like `pass()`, `fail()`, `skip()`, `info()`, `log()`, etc., to record the test results and add information to the report.
+   - You can create child tests or nested tests using the `createNode()` method of an `ExtentTest` object, allowing you to create a hierarchical structure in the report.
+
+## Attaching screenshot on Failure to Report
+
+```java
+WebDriver driver = ((BaseTest) result.getInstance()).getDriver();
+String screenshotBase64 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+String screenshotPath = "data:image/png;base64," + screenshotBase64;
+test.get().fail("Screenshot on failure", MediaEntityBuilder.createScreenCaptureFromBase64String(screenshotPath).build());
+```
+
+The line `String screenshotPath = "data:image/png;base64," + screenshotBase64;` is creating a Base64-encoded data URI for the screenshot image.
+- `screenshotBase64` is a variable that holds the screenshot image as a Base64-encoded string. This string represents the binary data of the screenshot image encoded using the Base64 scheme.
+- `"data:image/png;base64,"` is a prefix that specifies the data URI scheme and the content type of the image.
+  - `data:` indicates that the URI contains data inline, rather than referencing an external resource.
+  - `image/png` specifies the MIME type of the image, indicating that it is a PNG image.
+  - `base64` specifies the encoding scheme used for the image data, which is Base64 in this case.
+  - The comma (`,`) separates the content type from the actual Base64-encoded data.
+
+By concatenating the prefix `"data:image/png;base64,"` with the `screenshotBase64` string, we create a complete data URI that represents the screenshot image.
+
+For example, if the `screenshotBase64` variable contains the Base64-encoded string `"iVBORw0KGgoAAAANSUhEUgAAA..."`, the resulting `screenshotPath` will be:
+```
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA..."
+```
+
+This data URI can be used as the source (src) attribute of an `<img>` tag in HTML to display the screenshot image directly within the web page, without the need for a separate image file.
+
+In the context of Extent Reports, the `MediaEntityBuilder` class provides a method `createScreenCaptureFromBase64String()` that takes a Base64-encoded screenshot path and creates a screenshot entity that can be attached to the test report. By passing the `screenshotPath` to this method, the screenshot image is embedded within the Extent Reports HTML file, allowing it to be viewed alongside the test results.
+
+Using data URIs for embedding screenshots in the report has the advantage of keeping the report self-contained and avoiding the need to manage separate image files.
+
+## Some additional info about embedded images
+
+In the code snippet provided, the screenshots are not stored as separate image files on the file system. Instead, they are embedded directly within the Extent Reports HTML file using data URIs.
+
+When a test fails and a screenshot is captured, the following steps occur:
+1. The screenshot is captured using the `TakesScreenshot` interface and the `getScreenshotAs(OutputType.BASE64)` method, which returns the screenshot as a Base64-encoded string.
+2. The Base64-encoded string is concatenated with the data URI prefix (`"data:image/png;base64,"`) to create a complete data URI for the screenshot.
+3. The data URI is passed to the `MediaEntityBuilder.createScreenCaptureFromBase64String()` method to create a screenshot entity.
+4. The screenshot entity is attached to the test failure using `test.get().fail("Screenshot on failure", screenshotEntity)`.
+
+When the Extent Reports HTML file is generated, the screenshot entities are embedded within the HTML file itself. The data URIs are used as the source (src) attribute of `<img>` tags, allowing the screenshots to be displayed directly within the report.
+
+For example, in the generated HTML file, you might find an `<img>` tag like this:
+```html
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA..." alt="Screenshot">
+```
+
+The `src` attribute contains the complete data URI of the screenshot, including the Base64-encoded image data.
+
+By using data URIs, the screenshots are stored within the HTML file itself, eliminating the need for separate image files. This makes the Extent Reports HTML file self-contained and portable, as all the necessary information, including the screenshots, is contained within a single file.
+
+However, it's worth noting that embedding large numbers of high-resolution screenshots directly within the HTML file can significantly increase the file size of the report. If you have a large number of test failures with screenshots, it may be more efficient to store the screenshots as separate image files and provide links to them in the report instead of embedding them using data URIs.

@@ -21,7 +21,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
-    protected  static WebDriver driver;
+    protected static WebDriver driver;
     protected String downloadsDirectory;
     protected String downloadFilePath;
     protected Wait<WebDriver> wait;
@@ -65,5 +65,9 @@ public class BaseTest {
     @AfterSuite
     public void tearDown() {
         driver.quit();
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 }
