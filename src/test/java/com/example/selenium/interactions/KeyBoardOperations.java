@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.example.selenium.BaseTest;
+import com.example.selenium.retrymechanism.RetryAnalyzer;
 
 public class KeyBoardOperations extends BaseTest {
 
@@ -22,7 +23,6 @@ public class KeyBoardOperations extends BaseTest {
         driver.get("https://the-internet.herokuapp.com/");
     }
 
-    @Test
     public void sendKeyThroughActions() {
         driver.navigate().to("https://the-internet.herokuapp.com/forgot_password");
         WebElement email = driver.findElement(By.cssSelector("#email"));
