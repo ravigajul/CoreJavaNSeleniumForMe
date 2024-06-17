@@ -21,7 +21,7 @@ public class FileUploadDownload extends BaseTest {
     public void fileDownload() throws InterruptedException {
         driver.get("https://the-internet.herokuapp.com/download");
         driver.findElement(By.xpath("//a[text()='test.txt']")).click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         java.nio.file.Path downloadedFilePath = Paths.get(downloadFilePath, "test.txt");
         if (java.nio.file.Files.exists(downloadedFilePath)) {

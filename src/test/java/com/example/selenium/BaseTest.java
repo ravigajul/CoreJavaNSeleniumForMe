@@ -12,19 +12,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+
+import com.example.utils.DownloadFolderCleaner;
 
 public class BaseTest {
     protected static WebDriver driver;
-    protected String downloadsDirectory;
-    protected String downloadFilePath;
-    protected Wait<WebDriver> wait;
+    protected static String downloadsDirectory;
+    protected static String downloadFilePath;
+    protected static FluentWait<WebDriver> wait;
 
     @BeforeSuite
     public void setUp() {
@@ -33,7 +32,7 @@ public class BaseTest {
         Map<String, String> prefs = new HashMap<>();
 
         downloadFilePath = Paths.get(System.getProperty("user.dir"), "downloads").toAbsolutePath().toString();
-
+        DownloadFolderCleaner.clearDownloadFolder(downloadFilePath);
         // Configure Chrome preferences to specify the download directory and disable
         // the download prompt
         prefs.put("download.default_directory", downloadFilePath);
@@ -57,9 +56,11 @@ public class BaseTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // global wait
+
+        // Initialize the FluentWait
         wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(20))
                 .pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
+
     }
 
     @AfterSuite
@@ -70,4 +71,5 @@ public class BaseTest {
     public WebDriver getDriver() {
         return driver;
     }
+
 }

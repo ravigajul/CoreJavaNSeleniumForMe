@@ -22,6 +22,7 @@ public class MouseOperations extends BaseTest {
         WebElement contextMenuLink = driver.findElement(By.xpath("//a[text()='Context Menu']"));
         Actions actions = new Actions(driver);
         actions.click(contextMenuLink).build().perform();
+        actions.click(driver.findElement(By.id("hot-spot")));
     }
 
     @Test
