@@ -64,7 +64,7 @@ Selenium:
 	TestNG
 		Basics
 			1. testNGXML config
-			2. Annotations (Static WebDriver) (might encounter null pointer exception if not static)
+			2. Annotations (Static WebDriver) (might encounter null pointer exception)
 		Test Case Management
 			1. Grouping(@Test(groups = { "group1" }))
 			2. Dependency
@@ -79,11 +79,14 @@ Selenium:
 			1. Listeners
 			2. Extent Reports
 			
+		Retry Mechanism
+			1. @Test(retryAnalyzer = RetryAnalyzer.class)
+			2. @BeforeClass (for Class-Level Retries):
+		
 		Parallel Execution
 			1. parallel tests by class, test, methods etc
-			
-	Retry Mechanism
-	Logging
-	Build Tool
 ==============================================================================
-Page Object Model
+Page Object Model		
+	
+
+
