@@ -377,6 +377,27 @@ public class GroupingExample {}
 
 **Non-Static Approach**: Use when you require separate WebDriver instances with different configurations or lifecycle management per test class or method.  
 
+## ITestResult 
+
+The below line from TestNG listener,  is a class that can listen to events during the execution of a TestNG test. The purpose of this particular line is to retrieve the WebDriver instance being used in the test. Here's a detailed breakdown:
+
+```java
+WebDriver driver = ((BaseTest)result.getInstance()).getDriver();
+```
+
+1. **`result.getInstance()`**:
+   - The `result` object is an instance of `ITestResult`, which holds information about the test method that was run. 
+   - `getInstance()` returns the instance of the test class that contains the test method that was executed.
+
+2. **`((BaseTest)result.getInstance())`**:
+   - This casts the object returned by `result.getInstance()` to the `BaseTest` class. This cast is necessary if the `getDriver()` method is defined in `BaseTest`, which is a superclass of the actual test class. This ensures that you can call methods specific to `BaseTest`.
+
+3. **`.getDriver()`**:
+   - This calls the `getDriver()` method of the `BaseTest` class. The `getDriver()` method is  a method in `BaseTest` that returns the WebDriver instance used by the test.
+
+4. **`WebDriver driver = ...`**:
+   - This assigns the WebDriver instance retrieved from the `getDriver()` method to the local variable `driver`.
+
 ## Extent Reports
 
 The combination of these classes allows you to generate detailed and informative HTML reports for your TestNG tests using the Extent Reports library.

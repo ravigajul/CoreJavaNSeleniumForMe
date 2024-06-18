@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite2" parallel="methods" thread-count="1" verbose="1">
+    <listeners>
+        <listener class-name="com.example.temp.MyListener" />
+    </listeners>
     <parameter name="username" value="Sharath" />
     <parameter name="password" value="Welcome!123" />
     <parameter name="url" value="https://www.java-prod.com"></parameter>
@@ -10,13 +13,13 @@
             </run>
         </groups> -->
         <classes>
-            <class name="com.example.temp.ParameterDemo" />
+            <class name="com.example.testng.AssertionExamples" />
         </classes>
     </test>
     <!-- Define group by classes -->
     <!-- <test name="SwitchToAlertsTests">
         <classes>
-            <class name="com.example.selenium.switchto.AlertsDemo" />
+            <class name="com.example.selenium.switchto.DataProviderDemo" />
         </classes>
     </test>
 
