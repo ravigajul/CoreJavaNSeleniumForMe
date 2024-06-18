@@ -2,6 +2,7 @@ package com.example.testng;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class AssertionExamples {
 
@@ -35,5 +36,12 @@ public class AssertionExamples {
         Object obj = new Object();
         Assert.assertNotNull(obj);
     }
-}
 
+    @Test
+    public void testMethod() {
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(false, "First assertion failed");
+        softAssert.assertEquals(1, 2, "Second assertion failed");
+        softAssert.assertAll(); // Report all collected errors
+    }
+}

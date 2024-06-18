@@ -1,0 +1,95 @@
+Important TestNG topics you should be aware of:
+
+1. **Annotations for Configuration**:
+    - `@BeforeSuite`, `@AfterSuite`
+    - `@BeforeTest`, `@AfterTest`
+    - `@BeforeClass`, `@AfterClass`
+    - `@BeforeMethod`, `@AfterMethod`
+    - `@BeforeGroups`, `@AfterGroups`
+
+2. **testng.xml Configuration**:
+    - Defining test suites
+    - Defining test groups
+    - Including and excluding tests
+    - Setting parallel execution and thread count
+    - Defining listeners and reporters
+
+3. **Listeners**:
+    - `ITestListener`
+    - `IInvokedMethodListener`
+    - `ISuiteListener`
+    - `IExecutionListener`
+    - `IAnnotationTransformer`
+
+4. **DataProvider**:
+    - Using `@DataProvider` within the same class
+    - Using `@DataProvider` from an external class
+    - Parameterizing tests with `@DataProvider`
+
+5. **Helper Attributes**:
+    - `priority`
+    - `enabled`
+    - `dependsOnMethods`
+    - `dependsOnGroups`
+    - `groups`
+    - `alwaysRun`
+
+6. **TestNG Assertions**:
+    - `assertEquals`
+    - `assertTrue`
+    - `assertFalse`
+    - `assertNotNull`
+    - `assertNull`
+    - `assertSame`
+    - `assertNotSame`
+    - Soft assertions
+
+7. **Test Dependencies**:
+    - `dependsOnMethods`
+    - `dependsOnGroups`
+
+8. **Parallel Execution**:
+    - Parallel execution at suite level
+    - Parallel execution at test level
+    - Parallel execution at method level
+
+9. **Timeouts**:
+    - Setting method-level timeouts
+
+10. **Retry Analyzer**:
+    - Implementing `IRetryAnalyzer`
+
+11. **Test Groups**:
+    - Defining and running test groups
+    - Including and excluding groups
+
+12. **Factory Annotation**:
+    - Using `@Factory` for creating test instances
+
+13. **Custom Reporters**:
+    - Implementing `IReporter`
+    - Generating custom reports
+
+14. **Parameterization with @Parameters**:
+    - Using `@Parameters` annotation
+    - Passing parameters through `testng.xml`
+
+15. **Invocation Count**:
+    - Using `invocationCount` to run tests multiple times
+
+16. **Expected Exceptions**:
+    - Handling expected exceptions using `expectedExceptions`
+
+17. **Method Interceptors**:
+    - Implementing `IMethodInterceptor`
+
+18. **Custom Annotations**:
+    - Creating and using custom annotations
+
+19. **TestNG Eclipse and Maven Integration**:
+    - Setting up TestNG with Eclipse
+    - Integrating TestNG with Maven
+
+20. **Customizing TestNG Reports**:
+    - Using `Reporter.log`
+    - Customizing HTML and XML reports
