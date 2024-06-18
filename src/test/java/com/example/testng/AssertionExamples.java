@@ -38,7 +38,7 @@ public class AssertionExamples {
     }
 
     @Test
-    public void testMethod() {
+    public void testSoftAssert() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(false, "First assertion failed");
         softAssert.assertEquals(1, 2, "Second assertion failed");

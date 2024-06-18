@@ -1,4 +1,4 @@
-package com.example.selenium.retrymechanism;
+package com.example.testng.retrymechanism;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -1,4 +1,4 @@
-package com.example.selenium.retrymechanism;
+package com.example.testng.retrymechanism;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
