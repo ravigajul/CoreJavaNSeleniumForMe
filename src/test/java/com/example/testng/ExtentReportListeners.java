@@ -1,7 +1,5 @@
 package com.example.testng;
 
-import java.io.IOException;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -30,9 +28,10 @@ public class ExtentReportListeners implements ITestListener {
         test.get().fail(result.getThrowable());
 
         WebDriver driver = ((BaseTest) result.getInstance()).getDriver();
-        String screenshotBase64 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+        String screenshotBase64 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
         String screenshotPath = "data:image/png;base64," + screenshotBase64;
-         test.get().fail("Screenshot on failure", MediaEntityBuilder.createScreenCaptureFromBase64String(screenshotPath).build());
+        test.get().fail("Screenshot on failure",
+                MediaEntityBuilder.createScreenCaptureFromBase64String(screenshotPath).build());
     }
 
     @Override

@@ -12,9 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
 import com.example.utils.DownloadFolderCleaner;
@@ -65,7 +63,7 @@ public class BaseTest {
 
     @AfterSuite
     public void tearDown() {
-        driver.quit();
+        // driver.quit();
     }
 
     public WebDriver getDriver() {

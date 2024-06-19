@@ -73,4 +73,14 @@ public class JavaScriptExecutionTest extends BaseTest {
         WebElement scrolledElement = wait.until(driver -> driver.findElement(By.id("visibleOnScroll")));
         assert scrolledElement.getText().equals("You have scrolled to me!");
     }
+
+    @Test
+    public void highlightElement() {
+        WebElement textBox = driver.findElement(By.id("inputField"));
+        WebElement alertButton = driver.findElement(By.id("alertButton"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.border='5px solid red';arguments[1].style.border='5px solid green'",
+                textBox, alertButton);
+
+    }
 }

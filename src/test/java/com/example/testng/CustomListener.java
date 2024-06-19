@@ -1,9 +1,10 @@
 package com.example.testng;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-public class GroupingExample {
-
+@Listeners(ListenersExample.class)
+public class CustomListener {
     @Test(groups = { "group1" })
     public void testMethod1() {
         System.out.println("Test Method 1 - Group 1");
