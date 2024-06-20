@@ -1,5 +1,7 @@
 package com.example.testng;
 
+import java.util.HashMap;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -7,6 +9,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.example.selenium.BaseTest;
+import com.example.testng.dataproviders.ExcelDataProvider;
+import com.example.testng.dataproviders.StaticDataProvider;
 
 public class DataProviderDemo extends BaseTest {
 
@@ -59,6 +63,11 @@ public class DataProviderDemo extends BaseTest {
     @Test(dataProvider = "Static-Data-Provider", dataProviderClass = StaticDataProvider.class)
     public void saticDataProviderDemo(String fName, String lName, String jobTitle) {
         System.out.println(fName + " " + lName + " " + jobTitle);
+    }
+
+    @Test(dataProvider = "Excel-Data-Provider", dataProviderClass = ExcelDataProvider.class)
+    public void excelDataProviderDemo(HashMap<String, String> data) {
+        System.out.println(data.get("fName") + " " + data.get("lName") + " " + data.get("jobTitle"));
     }
 
     @DataProvider(name = "Data-Provider")
