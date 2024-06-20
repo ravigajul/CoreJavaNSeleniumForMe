@@ -7,7 +7,7 @@
 
     <!-- Listeners for custom actions during the test lifecycle -->
     <listeners>
-        <listener class-name="com.example.testng.ExtentReportListeners" />
+        <listener class-name="com.example.testng.listeners.ExtentReportListeners" />
     </listeners>
 
     <!-- Define group by classes -->
