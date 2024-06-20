@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import com.example.selenium.BaseTest;
+import com.example.selenium.misc.BaseTest;
 import com.example.utils.DateManipulation;
 
 public class DatePicker extends BaseTest {

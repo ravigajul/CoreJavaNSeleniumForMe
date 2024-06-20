@@ -1,4 +1,4 @@
-package com.example.testng;
+package com.example.testng.annotations;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;

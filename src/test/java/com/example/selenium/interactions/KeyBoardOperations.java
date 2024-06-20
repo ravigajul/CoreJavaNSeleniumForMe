@@ -13,8 +13,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.example.selenium.BaseTest;
-import com.example.testng.retrymechanism.RetryAnalyzer;
+import com.example.selenium.misc.BaseTest;
 
 public class KeyBoardOperations extends BaseTest {
 
@@ -88,7 +87,8 @@ public class KeyBoardOperations extends BaseTest {
     @Test
     public void pressFunctionKeyF5() {
         driver.navigate().to("https://the-internet.herokuapp.com/key_presses");
-        WebElement targetElement = driver.findElement(By.cssSelector("input#target"));
+        // WebElement targetElement =
+        // driver.findElement(By.cssSelector("input#target"));
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.F5).perform();
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(20))

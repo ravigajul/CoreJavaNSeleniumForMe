@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-import com.example.selenium.BaseTest;
+import com.example.selenium.misc.BaseTest;
 
 public class TestLevelRetry extends BaseTest {
     

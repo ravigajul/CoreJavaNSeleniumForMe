@@ -3,7 +3,7 @@ package com.example.selenium.widgets;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import com.example.selenium.BaseTest;
+import com.example.selenium.misc.BaseTest;
 
 public class AutoComplete extends BaseTest {
 

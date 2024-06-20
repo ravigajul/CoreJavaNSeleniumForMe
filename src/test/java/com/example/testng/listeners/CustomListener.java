@@ -1,4 +1,4 @@
-package com.example.testng;
+package com.example.testng.listeners;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;

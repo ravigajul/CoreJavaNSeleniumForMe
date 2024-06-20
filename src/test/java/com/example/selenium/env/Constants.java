@@ -1,10 +1,6 @@
 package com.example.selenium.env;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-
-import com.example.utils.ExcelReader;
 
 public class Constants {
     // public static String EXCEL_FILE_PATH = "com"+ File.separator + "example"+

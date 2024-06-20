@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.example.selenium.BaseTest;
+import com.example.selenium.misc.BaseTest;
 
 public class FramesDemo extends BaseTest {
 

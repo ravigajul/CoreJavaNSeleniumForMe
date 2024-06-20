@@ -1,4 +1,4 @@
-package com.example.testng;
+package com.example.testng.dataproviders;
 
 import java.util.HashMap;
 
@@ -8,9 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.example.selenium.BaseTest;
-import com.example.testng.dataproviders.ExcelDataProvider;
-import com.example.testng.dataproviders.StaticDataProvider;
+import com.example.selenium.misc.BaseTest;
 
 public class DataProviderDemo extends BaseTest {
 

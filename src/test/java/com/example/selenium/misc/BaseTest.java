@@ -1,4 +1,4 @@
-package com.example.selenium;
+package com.example.selenium.misc;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

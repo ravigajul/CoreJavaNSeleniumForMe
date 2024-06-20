@@ -1,4 +1,4 @@
-package com.example.selenium;
+package com.example.selenium.misc;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

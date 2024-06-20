@@ -1,4 +1,4 @@
-package com.example.selenium;
+package com.example.selenium.misc;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
