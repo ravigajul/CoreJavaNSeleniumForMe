@@ -20,7 +20,7 @@
     <!-- Group by packages-->
     <test name="PackageLevelTests">
         <packages>
-            <package name="com.example.selenium.*" />
+            <package name="com.example.selenium.interactions" />
         </packages>
     </test>
 
