@@ -1,12 +1,10 @@
-package com.example.selenium;
+package com.example.selenium.misc;
 
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-
-import com.example.selenium.misc.BaseTest;
 
 public class WebTableScrapping extends BaseTest {
 
