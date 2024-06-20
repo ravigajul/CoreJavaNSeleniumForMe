@@ -23,12 +23,13 @@ public class KeyBoardOperations extends BaseTest {
         driver.get("https://the-internet.herokuapp.com/");
     }
 
+    @Test
     public void sendKeyThroughActions() {
         driver.navigate().to("https://the-internet.herokuapp.com/forgot_password");
         WebElement email = driver.findElement(By.cssSelector("#email"));
         Actions actions = new Actions(driver);
         actions.sendKeys(email, "This is through actions").perform();
-        assert email.getText().equals("This is through actions");
+        assert email.getAttribute("value").equals("This is through actions");
     }
 
     @Test

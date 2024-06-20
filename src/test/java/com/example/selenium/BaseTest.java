@@ -40,6 +40,9 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", prefs);
 
+        // ignoring certificate issues
+        options.setAcceptInsecureCerts(true);
+
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         // implicitwat
@@ -63,7 +66,7 @@ public class BaseTest {
 
     @AfterSuite
     public void tearDown() {
-        // driver.quit();
+        driver.quit();
     }
 
     public WebDriver getDriver() {
