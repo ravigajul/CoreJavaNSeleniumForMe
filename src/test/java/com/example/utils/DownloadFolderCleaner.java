@@ -8,19 +8,20 @@ import java.nio.file.Paths;
 public class DownloadFolderCleaner {
     public static void clearDownloadFolder(String downloadFolderPath) {
         Path downloadFolder = Paths.get(downloadFolderPath);
-
-        try {
-            Files.list(downloadFolder)
-                    .filter(Files::isRegularFile)
-                    .forEach(file -> {
-                        try {
-                            Files.deleteIfExists(file);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    });
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (Files.exists(downloadFolder) && Files.isDirectory(downloadFolder)) {
+            try {
+                Files.list(downloadFolder)
+                        .filter(Files::isRegularFile)
+                        .forEach(file -> {
+                            try {
+                                Files.deleteIfExists(file);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
