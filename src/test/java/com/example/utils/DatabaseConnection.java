@@ -56,9 +56,9 @@ public class DatabaseConnection {
     public static void main(String[] args) throws Exception {
         List<HashMap<String, Object>> empData = getEmployeeData("select * from employees where rownum<=5");
         for (HashMap<String, Object> hashMap : empData) {
-            System.out.println(empData);
+            System.out.println(hashMap);
         }
-       
+
         List<HashMap<String, Object>> depData = getEmployeeData("select * from departments where rownum<=5");
         for (HashMap<String, Object> hashMap : depData) {
             System.out.println(hashMap);
