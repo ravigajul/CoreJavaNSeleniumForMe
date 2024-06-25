@@ -571,6 +571,62 @@ In this example:
 
 This approach helps keep the code clean and organized, as the locators for web elements are separated from the test logic, making it easier to maintain and reuse.
 
+## Key Differences between @FindBys and @FindAll
+
+In Selenium's Page Factory, `@FindAll` and `@FindBys` are used to locate web elements, but they serve different purposes. Here's a detailed explanation of each annotation and their differences:
+
+### `@FindAll`
+
+`@FindAll` is used to find web elements that match any of the given criteria. It is equivalent to a logical OR operation. The element will be matched if it satisfies at least one of the specified locators.
+
+#### Example:
+
+```java
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+
+@FindAll({
+    @FindBy(id = "submit"),
+    @FindBy(name = "submitButton")
+})
+private WebElement submitButton;
+```
+
+In this example, the `submitButton` will be located if it has either the ID "submit" or the name "submitButton".
+
+### `@FindBys`
+
+`@FindBys` is used to find web elements that match all of the given criteria in a nested manner. It is equivalent to a logical AND operation. The element must satisfy all of the specified locators in sequence.
+
+#### Example:
+
+```java
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.FindBy;
+
+@FindBys({
+    @FindBy(className = "form-group"),
+    @FindBy(tagName = "input"),
+    @FindBy(id = "username")
+})
+private WebElement usernameField;
+```
+
+In this example, the `usernameField` will be located if it is inside an element with the class name "form-group" and a tag name "input", and it has the ID "username".
+
+### Key Differences:
+
+1. **Logical Operation:**
+   - `@FindAll` uses a logical OR operation, meaning any of the criteria can match.
+   - `@FindBys` uses a logical AND operation, meaning all criteria must match in the specified order.
+
+2. **Usage:**
+   - `@FindAll` is useful when an element can be identified by multiple locators, and you want to use whichever one is found.
+   - `@FindBys` is useful when you need to narrow down an element within a specific context or a nested structure..
+
+
 ## Fluent Interface
 
 The Fluent Interface pattern is a method of designing object-oriented APIs in such a way that multiple method calls can be chained together, making the code more readable and expressive. In the context of the Page Object Model (POM) in Selenium, it allows you to chain methods in a way that simulates natural language.
