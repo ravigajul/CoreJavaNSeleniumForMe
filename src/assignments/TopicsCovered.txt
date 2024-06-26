@@ -86,7 +86,25 @@ Selenium:
 		Parallel Execution
 			1. parallel tests by class, test, methods etc
 ==============================================================================
-Page Object Model		
+Page Object Model	
+1. PageFactory
+2. Class approach
+3. Fluent interfaces
+=================================================================================
+Selenium exceptions
+Common exceptions in Selenium with Java:
+1. NoSuchElementException
+2. TimeoutException
+3. ElementNotVisibleException
+4. StaleElementReferenceException
+5. WebDriverException
+6. NoAlertPresentException
+7. InvalidSelectorException
+8. ElementNotSelectableException
+9. InvalidElementStateException
+10. UnhandledAlertException
+11. MoveTargetOutOfBoundsException
+12. JavascriptException	
 	
 
 

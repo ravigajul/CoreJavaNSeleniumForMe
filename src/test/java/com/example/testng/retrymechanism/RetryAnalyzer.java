@@ -7,7 +7,8 @@ public class RetryAnalyzer implements IRetryAnalyzer {
 
     private int count = 0;
     private static final int retryLimit = 3; // Set your desired retry count
-    //Check the sendkeys in keyboardoperations.java for example 
+    // Check the sendkeys in keyboardoperations.java for example
+
     @Override
     public boolean retry(ITestResult result) {
         if (!result.isSuccess() && count < retryLimit) {
@@ -17,4 +18,3 @@ public class RetryAnalyzer implements IRetryAnalyzer {
         return false;
     }
 }
-
