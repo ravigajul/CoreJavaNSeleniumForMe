@@ -22,4 +22,19 @@ public class HomePage extends BasePage {
         return new ProductsPage(driver);
     }
 
+    public HomePage setUseName(String username) {
+        driver.findElement(txtUserName).sendKeys(username);
+        return this;
+    }
+
+    public HomePage setpassword(String password) {
+        driver.findElement(txtPassword).sendKeys(password);
+        return this;
+    }
+
+    public ProductsPage clickLogin() {
+        driver.findElement(btnSubmit).click();
+        return new ProductsPage(driver);
+    }
+
 }

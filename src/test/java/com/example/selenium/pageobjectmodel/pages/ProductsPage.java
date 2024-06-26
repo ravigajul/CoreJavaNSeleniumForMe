@@ -13,6 +13,7 @@ public class ProductsPage extends BasePage {
     @FindBy(css = "a.shopping_cart_link")
     private WebElement cartLink;
 
+    
     @FindBy(xpath = "//button[@id='checkout']")
     private WebElement checkOutBtn;
 

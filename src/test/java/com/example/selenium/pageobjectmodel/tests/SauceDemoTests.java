@@ -54,4 +54,15 @@ public class SauceDemoTests extends BaseTest {
         productsPage.addAllItemsToCart();
     }
 
+    @Test
+    public void fluentDemoTest(){
+
+        // homePage.setUseName("standard_user");
+        // homePage.setpassword("secret_sauce");
+        // homePage.clickLogin();
+        homePage.setUseName("standard_user").setpassword("secret_sauce").clickLogin();
+        homePage.setUseName(downloadFilePath).setpassword("secret_sauce").clickLogin();
+        System.out.println("Fluent Demo Test");
+    }
+
 }
