@@ -1,0 +1,50 @@
+Question,Option A,Option B,Option C,Option D,Correct Answer
+What is the main purpose of the Page Object Model?,To create web pages,To organize test code and improve maintenance,To write test cases,To handle exceptions,B
+Which annotation is used to find web elements in Page Object Model?,@FindBy,@Test,@BeforeMethod,@AfterMethod,A
+In Java, which keyword is used to inherit a class?,extends,implements,inherits,derives,A
+What is the default scope of variables in Java?,public,private,protected,package-private,D
+Which annotation is used to mark a method as a test in TestNG?,@Test,@TestMethod,@TestCase,@TestNGMethod,A
+How do you set priority for test methods in TestNG?,@Priority,@Order,@TestPriority,@Test(priority=1),D
+Which Selenium method is used to enter text into a text field?,sendText(),type(),sendKeys(),inputText(),C
+What is the purpose of WebDriverWait in Selenium?,To pause test execution,To wait for a specific condition,To set timeout for tests,To handle alerts,B
+Which design pattern does Page Object Model implement?,Singleton,Factory,Builder,Facade,D
+In Java, what is the purpose of the 'final' keyword?,To make a variable constant,To end a loop,To finalize a class,To terminate a method,A
+What is the TestNG annotation for running a method before each test method?,@BeforeTest,@BeforeMethod,@BeforeEach,@BeforeSuite,B
+Which Selenium method is used to click on an element?,click(),clickElement(),executeClick(),performClick(),A
+What is the purpose of the 'static' keyword in Java?,To create multiple instances,To make a variable belong to the class,To initialize a variable,To declare a constant,B
+How do you group tests in TestNG?,@Group,@TestGroup,@Category,@Groups,D
+Which Selenium class is used to handle dropdown elements?,Select,Dropdown,Option,DropdownHandler,A
+What is the purpose of the PageFactory class in Selenium?,To create web pages,To initialize Page Object elements,To manage browser drivers,To handle page loading,B
+In Java, which collection does not allow duplicate elements?,ArrayList,LinkedList,HashSet,Vector,C
+What is the TestNG annotation for running a method after all tests in the class?,@AfterClass,@AfterTest,@AfterSuite,@AfterAll,A
+Which Selenium method is used to switch to an iframe?,switchTo().frame(),goToFrame(),selectFrame(),changeFrame(),A
+What is the purpose of the 'super' keyword in Java?,To call superclass methods,To create a superclass,To declare a variable,To access static members,A
+How do you assert equality in TestNG?,assertEquals(),assertSame(),assertEqual(),checkEquals(),A
+Which Selenium interface represents a web element?,WebElement,Element,HtmlElement,DomElement,A
+What is the purpose of the 'this' keyword in Java?,To refer to the current class instance,To create a new instance,To call a method,To access static members,A
+How do you handle dynamic waits in Selenium?,Thread.sleep(),implicitlyWait(),explicitlyWait(),dynamicWait(),B
+What is the TestNG annotation for running a method before all tests in the class?,@BeforeClass,@BeforeTest,@BeforeSuite,@BeforeAll,A
+In Java, which interface is used to create a thread?,Runnable,Threadable,Executable,Process,A
+How do you handle alerts in Selenium?,Alert.accept(),switchTo().alert().accept(),handleAlert().accept(),acceptAlert(),B
+What is the purpose of the Actions class in Selenium?,To perform keyboard actions,To perform mouse actions,To perform both keyboard and mouse actions,To handle alerts,C
+In Java, what is the purpose of the 'instanceof' operator?,To create an instance,To check if an object is an instance of a specific class,To instantiate a class,To compare objects,B
+How do you set test dependencies in TestNG?,@Depends,@DependsOn,@DependsOnMethods,@DependsOnGroups,C
+Which Selenium method is used to get the current URL?,getCurrentUrl(),getUrl(),url(),currentUrl(),A
+What is the purpose of the 'volatile' keyword in Java?,To make a variable thread-safe,To create a constant,To optimize performance,To declare a static variable,A
+How do you handle multiple windows in Selenium?,switchTo().window(),getWindowHandles(),selectWindow(),changeWindow(),A
+What is the TestNG annotation for running a method after each test method?,@AfterTest,@AfterMethod,@AfterEach,@AfterSuite,B
+In Java, which class is used to read user input from the console?,Scanner,Console,Input,Reader,A
+How do you take screenshots in Selenium?,takeScreenshot(),getScreenshot(),TakesScreenshot interface,captureScreen(),C
+What is the purpose of the 'transient' keyword in Java?,To make a variable persistent,To exclude a variable from serialization,To create a temporary variable,To optimize memory usage,B
+How do you parameterize tests in TestNG?,@Parameter,@Parameterize,@TestParameter,@DataProvider,D
+Which Selenium method is used to refresh the current page?,refresh(),reload(),refreshPage(),navigate().refresh(),D
+In Java, what is the purpose of the 'synchronized' keyword?,To create a new thread,To make a method thread-safe,To synchronize variables,To optimize performance,B
+How do you handle dynamic elements in Selenium?,waitForElement(),dynamicElement(),ExpectedConditions class,findDynamicElement(),C
+What is the purpose of the TestNG listener?,To listen to music,To handle test execution events,To create test reports,To manage test data,B
+In Java, which method is called when an object is created?,construct(),new(),create(),constructor(),D
+How do you handle iframes in Selenium?,switchTo().iframe(),selectIframe(),changeToIframe(),frame(),A
+What is the purpose of the 'abstract' keyword in Java?,To create an interface,To declare an abstract class or method,To optimize code,To handle exceptions,B
+How do you assert that an element is present in Selenium?,assertPresent(),isElementPresent(),assertTrue(element.isDisplayed()),waitForElement(),C
+In Java, what is the purpose of the 'finally' block?,To handle exceptions,To execute code regardless of exceptions,To finalize objects,To end a try block,B
+How do you handle waits for multiple elements in Selenium?,multipleWait(),waitForAll(),ExpectedConditions.visibilityOfAllElements(),waitForElements(),C
+What is the purpose of the 'static' block in Java?,To create static methods,To initialize static variables,To declare static classes,To handle static exceptions,B

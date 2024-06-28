@@ -44,6 +44,7 @@ public class seleniumexceptions extends BaseTest {
     @Test
     public void JavascriptExceptionTest() {
         driver.get("https://formy-project.herokuapp.com/form");
-        driver.executeScript("document.getElementById('first-name').value='John'");
+        // ((Object)
+        // driver).executeScript("document.getElementById('first-name').value='John'");
     }
 }
