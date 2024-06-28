@@ -7,16 +7,14 @@ public class BrowserNavigations extends BaseTest {
 
     @BeforeMethod
     public void navigateTo() {
-        
+
         driver.get("https://the-internet.herokuapp.com/");
     }
 
     @Test
     public void navigateToURL() {
-        logger.info("Starting test");
         driver.navigate().to("https://the-internet.herokuapp.com/context_menu");
         assert driver.getCurrentUrl().equals("https://the-internet.herokuapp.com/context_menu");
-        logger.info("Ending test");
     }
 
     @Test
