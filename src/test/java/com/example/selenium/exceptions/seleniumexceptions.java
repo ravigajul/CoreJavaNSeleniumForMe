@@ -25,7 +25,7 @@ public class seleniumexceptions extends BaseTest {
     @Test
     public void webDriverExceptionTest() {
         driver.get("https://formy-project.herokuapp.com/form");
-        driver.quit();
+       // driver.quit();
         driver.findElement(By.cssSelector("#first-name")).sendKeys("John");
     }
 
