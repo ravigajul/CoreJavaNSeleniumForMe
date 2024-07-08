@@ -740,7 +740,63 @@ public class LoginTest extends BaseTest {
 2. **Concise Code**: Reduces boilerplate code and helps to write concise tests.
 3. **Maintainability**: Easier to maintain and extend, as changes to page interactions are localized to the page object methods.
 4. **Error Handling**: Can incorporate error handling within the page methods, ensuring consistent error messages and handling.
+Certainly! Here's a summary of what you've done to automate the handling of save dialog boxes using AutoIt with Selenium Java:
 
+## AutoIt and Selenium Integration for Save Dialog Handling
+
+### 1. AutoIt Script Setup
+
+1. Download AutoIt -https://www.autoitscript.com/site/autoit/downloads/
+2. Created a .au3 file with the following script:
+
+```autoit
+#include <FileConstants.au3>
+
+WinWaitActive("Save As")
+Send("Test.xlsx")
+Send("{ENTER}")
+
+$overwriteDialog = WinWait("Confirm Save As", "", 5)
+If $overwriteDialog Then
+    ControlClick($overwriteDialog, "", "&Yes")
+EndIf
+
+Sleep(2000)
+```
+
+3. Compiled the .au3 file into an executable named "handle_save_dialog.exe". Right click and click compile script
+
+### 2. Java Integration
+
+Added the following code to your Java Selenium project to execute the AutoIt script:
+
+```java
+try {
+    Runtime.getRuntime().exec(System.getProperty("user.dir") + 
+        File.separator + "src" + File.separator + "main" + 
+        File.separator + "resources" + File.separator + 
+        "handle_save_dialog.exe");
+} catch (IOException e) {
+    throw new RuntimeException(e);
+}
+```
+
+### 3. Functionality
+
+- The AutoIt script waits for the "Save As" dialog to appear
+- It then enters the filename "Test.xlsx" and presses Enter
+- If a "Confirm Save As" dialog appears (file already exists), it clicks "Yes" to overwrite
+- The script waits for 2 seconds to allow the download to complete
+- The Java code executes this AutoIt script when needed in the Selenium test
+
+### 4. Best Practices
+
+- Ensure the AutoIt executable is in the correct resource folder of your Java project
+- Add appropriate error handling and logging in your Java code
+- Consider parameterizing the file name and wait times for flexibility
+- Test the integration with various scenarios (new file, existing file, different file types)
+
+This setup allows you to handle save dialogs in your Selenium Java tests by leveraging AutoIt's ability to interact with Windows dialogs.
 ### Best Practices for Fluent Interface
 
 1. **Consistent Return Types**: Ensure methods return the appropriate page object instance to maintain the chain.
