@@ -16,6 +16,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import com.example.utils.DownloadFolderCleaner;
+import com.example.utils.LoggerUtil;
 
 public class BaseTest {
     protected static WebDriver driver;
@@ -25,7 +26,7 @@ public class BaseTest {
 
     @BeforeSuite
     public void setUp() {
-
+        LoggerUtil.info("Setting up Chrome Options in base test");
         // Create a map to store chrome options
         Map<String, String> prefs = new HashMap<>();
 
@@ -46,6 +47,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         // implicitwat
+        LoggerUtil.info("Maximizing the browser window");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         // Ensure download directory exists
@@ -53,6 +55,7 @@ public class BaseTest {
         try {
             if (!Files.exists(downloadDir)) {
                 Files.createDirectories(downloadDir);
+                LoggerUtil.info("Created download directory");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,6 +70,7 @@ public class BaseTest {
     @AfterSuite
     public void tearDown() {
          driver.quit();
+         LoggerUtil.info("Quit the browser");
     }
 
     public WebDriver getDriver() {

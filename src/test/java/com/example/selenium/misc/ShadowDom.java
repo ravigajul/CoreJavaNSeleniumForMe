@@ -7,10 +7,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.example.utils.LoggerUtil;
+
 public class ShadowDom extends BaseTest {
 
     @BeforeMethod
     public void navigateTo() {
+        LoggerUtil.info("Navigating to shadowdom page");
         driver.get(
                 "https://gistcdn.githack.com/ravigajul/6ded388a94fe46c28e2281f6ec39a68b/raw/f6aba231534ae000cf6bb159b6b911f92f1606d9/ShadowDom.html");
     }

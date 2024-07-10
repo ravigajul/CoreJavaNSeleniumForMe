@@ -7,10 +7,13 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.example.utils.LoggerUtil;
+
 public class SauceDemo extends BaseTest {
 
     @Test
     public void addAllItemsToCart() {
+        LoggerUtil.info("Navigating to sauce demo page");
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");

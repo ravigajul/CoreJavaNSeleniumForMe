@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.example.selenium.misc.BaseTest;
+import com.example.utils.LoggerUtil;
 
 public class JavaScriptExecutionTest extends BaseTest {
     public JavascriptExecutor js;
@@ -25,6 +26,7 @@ public class JavaScriptExecutionTest extends BaseTest {
         // Scroll to an element
         WebElement scrollableDiv = driver.findElement(By.id("scrollableDiv"));
         js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", scrollableDiv);
+        LoggerUtil.info("Scrolled To full Height");
     }
 
     @Test
@@ -32,6 +34,7 @@ public class JavaScriptExecutionTest extends BaseTest {
         // Click on a hidden element
         WebElement hiddenButton = driver.findElement(By.id("hiddenElement"));
         js.executeScript("arguments[0].click();", hiddenButton);
+        LoggerUtil.info("Clicked hidden Element");
     }
 
     @Test
@@ -39,6 +42,7 @@ public class JavaScriptExecutionTest extends BaseTest {
         // Set the value of an input field
         WebElement inputField = driver.findElement(By.id("inputField"));
         js.executeScript("arguments[0].value='JavaScript Executor Test';", inputField);
+        LoggerUtil.info("Set input field value using javascript executor");
     }
 
     @Test
@@ -49,6 +53,7 @@ public class JavaScriptExecutionTest extends BaseTest {
         // Handle Alert
         Alert alert = driver.switchTo().alert();
         alert.accept();
+        LoggerUtil.info("Accepted Java Script Alert");
     }
 
     @Test
@@ -57,7 +62,7 @@ public class JavaScriptExecutionTest extends BaseTest {
         // Retrieve the page title and display it in a paragraph
         String title = (String) js.executeScript("return document.title;");
         js.executeScript("document.getElementById('pageTitle').innerText = 'Page Title: ' + arguments[0];", title);
-
+        LoggerUtil.info("Retrieved page title using java script - " + title);
     }
 
     @Test
@@ -72,6 +77,7 @@ public class JavaScriptExecutionTest extends BaseTest {
         js.executeScript("arguments[0].scrollIntoView(true);", scrollTarget);
         WebElement scrolledElement = wait.until(driver -> driver.findElement(By.id("visibleOnScroll")));
         assert scrolledElement.getText().equals("You have scrolled to me!");
+        LoggerUtil.info("Scrolled into element's View");
     }
 
     @Test
@@ -81,6 +87,7 @@ public class JavaScriptExecutionTest extends BaseTest {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].style.border='5px solid red';arguments[1].style.border='5px solid green'",
                 textBox, alertButton);
+        LoggerUtil.info("Highlighted the element using javascript");
 
     }
 }

@@ -12,6 +12,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.example.selenium.extentreports.ExtentReportManager;
 import com.example.selenium.misc.BaseTest;
+import com.example.utils.LoggerUtil;
 
 public class ExtentReportListeners implements ITestListener {
     private static ExtentReports extent = ExtentReportManager.createInstance("target/Extent-Report.html");
@@ -19,6 +20,7 @@ public class ExtentReportListeners implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
+        LoggerUtil.info("Test Started - " + result.getMethod().getMethodName());
         System.out.println("Test Started: " + result.getMethod().getMethodName());
         ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
         test.set(extentTest);
@@ -33,21 +35,25 @@ public class ExtentReportListeners implements ITestListener {
         String screenshotPath = "data:image/png;base64," + screenshotBase64;
         test.get().fail("Screenshot on failure",
                 MediaEntityBuilder.createScreenCaptureFromBase64String(screenshotPath).build());
+                LoggerUtil.error("Test Failed - " + result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         test.get().skip(result.getThrowable());
+        LoggerUtil.warn("Test Skipped - " + result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         test.get().pass(result.getMethod().getMethodName());
+        LoggerUtil.info("Test Successful - " + result.getMethod().getMethodName());
     }
 
     @Override
     public void onFinish(ITestContext context) {
         extent.flush();
+        LoggerUtil.info("Test Finished - " + context.getCurrentXmlTest().getName());
     }
 
 }

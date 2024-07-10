@@ -11,18 +11,18 @@
     </listeners>
 
     <!-- Define group by classes -->
-    <!-- <test name="ClassLevelTests">
+    <test name="ClassLevelTests">
         <classes>
-            <class name="com.example.selenium.BrowserNavigations" />
+            <class name="com.example.selenium.misc.BrowserNavigations" />
         </classes>
-    </test> -->
+    </test>
 
     <!-- Group by packages-->
-    <test name="PackageLevelTests">
+    <!-- <test name="PackageLevelTests">
         <packages>
             <package name="com.example.selenium.*" />
         </packages>
-    </test>
+    </test> -->
 
     <!--   <test name="ParameterTest">
         <parameter name="username" value="testuser" />
