@@ -797,6 +797,33 @@ try {
 - Test the integration with various scenarios (new file, existing file, different file types)
 
 This setup allows you to handle save dialogs in your Selenium Java tests by leveraging AutoIt's ability to interact with Windows dialogs.
+
+## Javascript to check if an element is clickable or not 
+```javascript
+// Function to check if an element is clickable
+function isElementClickable(xpath) {
+  try {
+    const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (element && element.offsetParent !== null && element.offsetWidth > 0 && element.offsetHeight > 0) {
+      const rect = element.getBoundingClientRect();
+      const isOverlapped = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2) !== element;
+      return !isOverlapped && element.style.display !== 'none' && element.style.visibility !== 'hidden';
+    }
+    return false;
+  } catch (error) {
+    console.error('Error checking element clickability:', error);
+    return false;
+  }
+}
+
+// Check if the target element is clickable
+const targetXPath = "//label[@automation-id='digitalShopCardCheckboxButton']";
+if (isElementClickable(targetXPath)) {
+  console.log('The element is clickable');
+} else {
+  console.log('The element is not clickable');
+}
+```
 ### Best Practices for Fluent Interface
 
 1. **Consistent Return Types**: Ensure methods return the appropriate page object instance to maintain the chain.
