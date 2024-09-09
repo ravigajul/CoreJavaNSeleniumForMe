@@ -272,7 +272,7 @@ This setup ensures that downloaded files are saved to the specified directory wi
 
 ### Annotations
 
-Of course! Here is the scope of each TestNG annotation:
+Here is the scope of each TestNG annotation:
 
 - **@BeforeSuite**: Runs once before all tests in the suite.
 - **@AfterSuite**: Runs once after all tests in the suite.
@@ -324,6 +324,29 @@ public Object[][] dataProviderMethod() {
     };
 }
 ```
+The `@FindBy` annotation in Selenium does not support an "or" condition directly. However, you can achieve similar functionality using the `@FindAll` annotation, which allows you to specify multiple criteria, and the element will be located if any of the specified conditions match.
+
+### Using `@FindAll`
+
+`@FindAll` to specify multiple IDs:
+
+```java
+@FindAll({
+    @FindBy(id = "number"),
+    @FindBy(id = "account")
+})
+private WebElement cardNumber;
+```
+
+In this example, the `cardNumber` WebElement will be initialized if either an element with the ID `number` or an element with the ID `account` is found on the page. This effectively allows you to implement an "or" condition for locating elements
+
+### Summary of Annotations
+
+- **@FindBy**: Used for a single locator condition.
+- **@FindBys**: Used for multiple conditions that must all be satisfied (AND condition).
+- **@FindAll**: Used for multiple conditions where at least one must be satisfied (OR condition).
+
+This flexibility allows you to accommodate various scenarios in your page object model while maintaining clear and maintainable code.
 
 ### Parameters
  In TestNG, you can pass parameters to your test methods directly from the testng.xml configuration file. This allows you to customize test execution without modifying the test method code.
