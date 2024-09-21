@@ -847,6 +847,11 @@ if (isElementClickable(targetXPath)) {
   console.log('The element is not clickable');
 }
 ```
+## Mavengoal to pass testng xml at runtime
+```javascript
+mvn clean test '-DsuiteXmlFile=testng.xml'
+```
+
 ### Best Practices for Fluent Interface
 
 1. **Consistent Return Types**: Ensure methods return the appropriate page object instance to maintain the chain.
